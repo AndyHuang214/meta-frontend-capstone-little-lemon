@@ -1,0 +1,15 @@
+main {
+  padding: 2rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+aside {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  border-radius: 8px;
+}
