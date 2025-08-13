@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="logo-section">
-          <img src="/Logo-yellow 20@4x.png" alt="Site Logo" className="logo" />
+          <img src="/Logo-yellow 20@4x.png" alt="Site Logo" className="logo-footer" />
         </div>
 
         <div className="spacer" />
