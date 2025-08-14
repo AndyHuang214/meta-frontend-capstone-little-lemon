@@ -1,34 +1,37 @@
 // Main.jsx
 import React from 'react';
 import './Main.css'; // Optional styling
+import SpecialSection from './SpecialSection';
+import TestimonialSection from './TestimonialSection';
+import AboutSection from './AboutSection';
 
 const Main = () => {
   return (
     <main>
-      <section id="home">
-        <h1>Welcome to Our Site</h1>
-        <p>This is a demo of semantic HTML structure.</p>
-      </section>
+      {/* First Section: About Us */}
+      <AboutSection
+        title="Little Lemon"
+        subtitle="A Taste of Chicago"
+        paragraph="We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. Our chefs craft each dish with fresh, local ingredients, ensuring a unique and memorable dining experience."
+        imageSrc="https://placehold.co/600x400/FFD966/000?text=About+Image+1"
+        imageAlt="Restaurant Interior"
+      />
 
-      <section id="about">
-        <h2>About Us</h2>
-        <article>
-          <h3>Our Mission</h3>
-          <p>We aim to build accessible and meaningful web experiences.</p>
-        </article>
-        <article>
-          <h3>Our Team</h3>
-          <p>Meet the people behind the code and design.</p>
-        </article>
-      </section>
+      {/* Second Section: Specials */}
+      <SpecialSection />
 
-      <aside>
-        <h2>Related Links</h2>
-        <ul>
-          <li><a href="#">HTML5 Guide</a></li>
-          <li><a href="#">Accessibility Tips</a></li>
-        </ul>
-      </aside>
+      {/* Third Section: Testimonials */}
+      <TestimonialSection />
+
+      {/* Fourth Section: Our History */}
+      <AboutSection
+        title="Our History"
+        subtitle="From Chicago with love"
+        paragraph="Founded by brothers Adrian and Mario in 2021, Little Lemon has become a local favorite. Starting from a small food truck, they built a reputation for fresh, authentic Mediterranean cuisine. They are passionate about sharing their family's culinary traditions with the world."
+        imageSrc="https://placehold.co/600x400/FFD966/000?text=About+Image+2"
+        imageAlt="Adrian and Mario"
+        reverse={true}
+      />
     </main>
   );
 };

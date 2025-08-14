@@ -1,29 +1,7 @@
-.nav-list {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  transition: transform 0.3s ease-in-out; /* For smooth transitions */
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.nav-list a:hover {
-  color: #007bff;
-}
-
-/* ------------------
-   Mobile Styles
-   ------------------ */
-@media (max-width: 768px) {
   .nav-list {
     flex-direction: column;
     position: fixed; /* Use fixed positioning */
+    list-style: none;
     top: 60px;
     right: 0; /* Anchor it to the right side */
     /* Give it a fixed width */
@@ -47,15 +25,46 @@
     transition: transform 0.3s ease-in-out; /* No delay on open */
   }
 
+  .nav-list a {
+    display: block;
+    width: 100%;
+    text-align: left; /* Align text to the left */
+  }
+
   /* You may also want to style the list items */
   .nav-list li {
     text-align: left;
     padding: 0.5rem 1rem; /* Add padding for better spacing */
   }
 
-  .nav-list a {
-    display: block;
-    width: 100%;
-    text-align: left; /* Align text to the left */
-  }
+.nav-list a:hover {
+  color: #007bff;
+}
+
+/* ------------------
+   Mobile Styles
+   ------------------ */
+@media (min-width: 768px) {
+.nav-list {
+  flex-direction: row;
+  list-style: none;
+  position: static;
+  transform: translateX(0); /* Ensure it's always visible */
+  display: flex;
+  visibility: visible;
+  pointer-events: auto;
+  width: auto;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  transition: transform 0.3s ease-in-out; /* For smooth transitions */
+}
+
+
+.nav-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
 }
