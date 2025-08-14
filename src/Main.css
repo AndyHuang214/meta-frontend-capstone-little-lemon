@@ -32,7 +32,11 @@
   color: var(--font-color);
 }
 
-.about-us-container h2, .about-us-container h3, .about-us-container p {
+.about-us-container h2 {
+  color: var(--primary-color);
+}
+
+.about-us-container h3, .about-us-container p {
   color: var(--font-color);
 }
 

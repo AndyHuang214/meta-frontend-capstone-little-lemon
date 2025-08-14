@@ -13,7 +13,7 @@ const Main = () => {
         title="Little Lemon"
         subtitle="A Taste of Chicago"
         paragraph="We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. Our chefs craft each dish with fresh, local ingredients, ensuring a unique and memorable dining experience."
-        imageSrc="https://placehold.co/600x400/FFD966/000?text=About+Image+1"
+        imageSrc="head_chef.jpg"
         imageAlt="Restaurant Interior"
       />
 
@@ -28,7 +28,7 @@ const Main = () => {
         title="Our History"
         subtitle="From Chicago with love"
         paragraph="Founded by brothers Adrian and Mario in 2021, Little Lemon has become a local favorite. Starting from a small food truck, they built a reputation for fresh, authentic Mediterranean cuisine. They are passionate about sharing their family's culinary traditions with the world."
-        imageSrc="https://placehold.co/600x400/FFD966/000?text=About+Image+2"
+        imageSrc="Mario and Adrian A.jpg"
         imageAlt="Adrian and Mario"
         reverse={true}
       />

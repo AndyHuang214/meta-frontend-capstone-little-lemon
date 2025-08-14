@@ -8,21 +8,21 @@ const TestimonialSection = () => {
             <div className="testimonials-container">
             <TestimonialCard
                 rating="★★★★★"
-                userImageSrc="https://placehold.co/80x80/FFD966/000?text=User"
+                userImageSrc="male3.jpg"
                 userImageAlt="John D."
                 username="John D."
                 text="The food was amazing! The service was excellent and the atmosphere was perfect for a date night."
             />
             <TestimonialCard
                 rating="★★★★★"
-                userImageSrc="https://placehold.co/80x80/FFD966/000?text=User"
+                userImageSrc="female1.jpg"
                 userImageAlt="Sarah L."
                 username="Sarah L."
                 text="A hidden gem in the city. The lemon dessert is to die for and I can't wait to come back!"
             />
             <TestimonialCard
                 rating="★★★★★"
-                userImageSrc="https://placehold.co/80x80/FFD966/000?text=User"
+                userImageSrc="male2.jpg"
                 userImageAlt="Michael P."
                 username="Michael P."
                 text="Great for a quick bite or a full meal. The Greek salad is my favorite. Highly recommended!"
