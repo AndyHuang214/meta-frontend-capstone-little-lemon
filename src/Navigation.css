@@ -1,4 +1,4 @@
-  .nav-list {
+.nav-list {
     flex-direction: column;
     position: fixed; /* Use fixed positioning */
     list-style: none;
@@ -28,6 +28,7 @@
   .nav-list a {
     display: block;
     width: 100%;
+    color: var(--primary-color);
     text-align: left; /* Align text to the left */
   }
 
@@ -63,7 +64,6 @@
 
 .nav-list a {
   text-decoration: none;
-  color: #333;
   font-weight: 500;
 }
 

@@ -1,5 +1,5 @@
 header {
-  background-color: #f8f9fa;
+  background-color: transparent;
   padding: 1rem;
   border-bottom: 1px solid #ddd;
 }
@@ -14,4 +14,3 @@ header {
   height: 40px;
   width: auto;
 }
-
