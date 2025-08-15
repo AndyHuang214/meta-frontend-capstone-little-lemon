@@ -1,7 +1,23 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'; // For matchers like toHaveBeenCalledWith
+import '@testing-library/jest-dom'; // For matchers like toHaveBeenCalledWithq
+import { useNavigate } from 'react-router-dom';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes } from './BookingPage';
+
+// Mock the react-router-dom module
+// jest.mock('react-router-dom', () => ({
+//   ...jest.requireActual('react-router-dom'), // Use actual for all other exports
+//   useNavigate: () => jest.fn(), // Mock useNavigate hook with a mock function
+// }));
+jest.mock('react-router-dom', () => ({
+  useNavigate: () => jest.fn(),
+  Link: ({ to, children }) => <a href={to}>{children}</a>,
+  // Add other components you use from the library as needed
+}));
+
+// Mock the window.fetchAPI and window.submitAPI functions
+window.fetchAPI = jest.fn((date) => ['17:00', '18:00', '19:00']);
+window.submitAPI = jest.fn(() => true);
 
 test('Renders the BookingForm Date label', () => {
   render(<BookingForm />);
@@ -14,105 +30,81 @@ test('Renders the BookingForm Date label', () => {
 describe('BookingPage Functions', () => {
 
   describe('initializeTimes', () => {
-    it('should return a default set of times when no date is provided', () => {
-      // The expected default times from your component
-      const expectedTimes = [
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-      ];
-      const result = initializeTimes(null); // Pass null or no argument
-      expect(result).toEqual(expectedTimes);
+
+    it('should call fetchAPI and return the result', () => {
+      // 1. Define the mock return value for fetchAPI
+      const mockTimes = ['17:00', '18:00', '19:00', '20:00'];
+      window.fetchAPI.mockReturnValue(mockTimes);
+
+      // 2. Call the function with a specific date
+      const date = '2025-08-19';
+      const result = initializeTimes(date);
+
+      // 3. Assert that fetchAPI was called with the correct date
+      const expectedDate = new Date(2025, 7, 19);
+      expect(window.fetchAPI).toHaveBeenCalledWith(expectedDate);
+
+      // 4. Assert that the result from initializeTimes is the mock value
+      expect(result).toEqual(mockTimes);
     });
 
-    it('should return a specific set of times when a date is provided', () => {
-      // The expected times for a specific date from your component
-      const expectedTimes = [
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-      ];
-      // We can use any date string here, as the current implementation
-      // returns the same set of times regardless of the specific date.
-      const testDate = '2025-08-14';
-      const result = initializeTimes(testDate);
-      expect(result).toEqual(expectedTimes);
-    });
-  });
-
-  describe('updateTimes', () => {
     it('should return the correct new state based on the selected date', () => {
-      // Set up a mock state and action to test the reducer
-      const initialState = [
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-      ];
-      const testDate = '2023-10-28';
-      const action = { date: testDate };
+        // Step 1: Set up a predictable mock for the nested function call.
+        // We'll use the same mock as in the previous example.
+        const mockTimes = ['17:00', '18:00', '19:00'];
+        window.fetchAPI.mockReturnValue(mockTimes);
 
-      // We expect the new state to be the times for a specific date
-      const expectedTimes = [
-        '16:00',
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-      ];
+        // Step 2: Define the action to be passed to the reducer.
+        const initialState = []; // The initial state doesn't matter for this test.
+        const testDate = '2023-10-28';
+        const action = { date: testDate };
 
-      // Call the reducer function
-      const newState = updateTimes(initialState, action);
+        // Step 3: Call the reducer function (updateTimes).
+        const newState = updateTimes(initialState, action);
 
-      // Assert that the new state matches the expected times
-      expect(newState).toEqual(expectedTimes);
+        // Step 4: Assert that the nested function was called correctly.
+        // The updateTimes reducer will pass a Date object to fetchAPI.
+        const expectedDate = new Date(2023, 9, 28); 
+        expect(window.fetchAPI).toHaveBeenCalledWith(expectedDate);
+
+        // Step 5: Assert that the new state matches the value returned by the mock.
+        expect(newState).toEqual(mockTimes);
     });
-  });
 
-  it('should log form data to the console when the form is submitted', () => {
-    // Mock the console.log function
-    const logSpy = jest.spyOn(console, 'log');
+    it('should call the submitForm prop with correct data on form submission', () => {
+      // 1. Mock the submitForm prop
+      const mockSubmitForm = jest.fn();
 
-    // Mock the props that BookingForm now requires
-    const mockAvailableTimes = ['17:00', '18:00'];
-    const mockOnDateChanged = jest.fn();
+      // 2. Mock the other required props
+      const mockAvailableTimes = ['17:00', '18:00'];
+      const mockOnDateChanged = jest.fn();
 
-    // Render the component with the required props
-    render(
-      <BookingForm
-        availableTimes={mockAvailableTimes}
-        onDateChanged={mockOnDateChanged}
-      />
-    );
+      // 3. Render the BookingForm component with the mocked props
+      render(
+        <BookingForm
+          availableTimes={mockAvailableTimes}
+          onDateChanged={mockOnDateChanged}
+          submitForm={mockSubmitForm} // Pass the mock function to the component
+        />
+      );
 
-    // Find the form and simulate submission
-    const formElement = screen.getByRole('form');
-    fireEvent.submit(formElement);
+      // 4. Find the form and trigger a submit event
+      const formElement = screen.getByRole('form');
+      fireEvent.submit(formElement);
 
-    // Assert that the log function was called correctly.
-    // Note: We check that the FIRST call to console.log matches the expected data.
-    // We also correct the expected 'occasion' value.
-    expect(logSpy.mock.calls[0][1]).toEqual(
-      expect.objectContaining({
+      // 5. Assert that the submitForm mock function was called
+      expect(mockSubmitForm).toHaveBeenCalledTimes(1);
+
+      // 6. Assert that the submitForm mock function was called with the expected form data
+      expect(mockSubmitForm).toHaveBeenCalledWith({
         date: '',
         time: '17:00',
         guests: 1,
         occasion: 'Occasion',
         specialRequest: '',
-      })
-    );
+      });
+    });
 
-    // It's good practice to restore the original function after the test
-    logSpy.mockRestore();
   });
 });
 
