@@ -1,10 +1,9 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import Header from './Header';
 import BookingForm from './BookingForm';
 import Footer from './Footer';
 
-function BookingPage() {
-    function initializeTimes (date) {
+    export function initializeTimes (date) {
     if (!date) {
         // Return a default set of times for today
         return [
@@ -27,9 +26,14 @@ function BookingPage() {
     ];
     }
 
-    function updateTimes(state, action) {//retrun new state
+    export function updateTimes(state, action) {//retrun new state
         return initializeTimes(action.date);
     }
+
+function BookingPage() {
+
+
+
 
     const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
