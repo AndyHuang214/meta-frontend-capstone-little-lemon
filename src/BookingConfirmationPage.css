@@ -1,0 +1,112 @@
+        .confirmation-container {
+          font-family: 'Inter', sans-serif;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          background-color: #f3f4f6;
+          padding: 1rem;
+        }
+
+        .confirmation-card {
+          background-color: #ffffff;
+          padding: 2rem;
+          border-radius: 1rem;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          max-width: 32rem;
+          width: 100%;
+          text-align: center;
+        }
+
+        .header-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1.5rem;
+        }
+
+        .check-icon {
+          color: #22c55e;
+          width: 4rem;
+          height: 4rem;
+          margin-bottom: 1rem;
+        }
+
+        .confirmation-title {
+          font-size: 2.25rem;
+          font-weight: 700;
+          color: #1f2937;
+        }
+
+        .confirmation-message {
+          color: #4b5563;
+          margin-bottom: 2rem;
+          font-size: 1.125rem;
+        }
+
+        .details-card {
+          text-align: left;
+          background-color: #f9fafb;
+          padding: 1.5rem;
+          border-radius: 0.5rem;
+          box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+          border: 1px solid #e5e7eb;
+        }
+
+        .details-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #374151;
+          margin-bottom: 1rem;
+        }
+
+        .details-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .details-list li {
+          margin-bottom: 0.75rem;
+          font-size: 1.125rem;
+          color: #4b5563;
+        }
+        
+        .details-list strong {
+          font-weight: 500;
+          color: #111827;
+          width: 7rem;
+          display: inline-block;
+        }
+
+        .back-button {
+          margin-top: 2rem;
+          padding: 0.75rem 1.5rem;
+          background-color: #facc15;
+          color: #1f2937;
+          font-weight: 700;
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.2s ease-in-out;
+        }
+
+        .back-button:hover {
+          background-color: #eab308;
+        }
+
+        .back-button:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.5);
+        }
+
+        @media (min-width: 768px) {
+          .confirmation-title {
+            font-size: 2.5rem;
+          }
+          .confirmation-message {
+            font-size: 1.25rem;
+          }
+        }

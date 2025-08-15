@@ -18,8 +18,6 @@ const Main = () => {
         imageAlt="Restaurant Interior"
       />
 
-      <BookingForm />
-
       {/* Second Section: Specials */}
       <SpecialSection />
 

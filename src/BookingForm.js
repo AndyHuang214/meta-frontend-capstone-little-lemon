@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./BookingForm.css"
 
-const BookingForm = ({availableTimes = [], onDateChanged }) => {
+const BookingForm = ({availableTimes = [], onDateChanged, submitForm }) => {
 
   // Use useState hook to manage form data
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ const BookingForm = ({availableTimes = [], onDateChanged }) => {
     // You would typically send this data to an API here.
     // Instead of alert, we'll log to console for now.
     // A custom modal or message box would be a good next step.
-    console.log("Reservation submitted! Check the console for data.");
+    submitForm(formData);
   };
 
   return (
