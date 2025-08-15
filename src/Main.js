@@ -4,6 +4,7 @@ import './Main.css'; // Optional styling
 import SpecialSection from './SpecialSection';
 import TestimonialSection from './TestimonialSection';
 import AboutSection from './AboutSection';
+import BookingForm from './BookingForm';
 
 const Main = () => {
   return (
@@ -16,6 +17,8 @@ const Main = () => {
         imageSrc="head_chef.jpg"
         imageAlt="Restaurant Interior"
       />
+
+      <BookingForm />
 
       {/* Second Section: Specials */}
       <SpecialSection />
