@@ -1,7 +1,8 @@
 import React, { useReducer, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Header from './Header';
-import BookingForm from './BookingForm';
+import BookingContactInfoForm from './BookingContactInfoForm';
+
 import Footer from './Footer';
 
 export function initializeTimes (date) {
@@ -24,7 +25,7 @@ export function updateTimes(state, action) {//retrun new state
 
 
 
-function BookingPage() {
+function BookingContactInfoPage() {
     //Make sure fetchAPI is loaded before parse BookingPage
     useEffect(() => {
     const checkAPI = () => {
@@ -47,7 +48,13 @@ function BookingPage() {
     return () => clearInterval(interval);
     }, []);
 
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const bookingDetails = location.state?.bookingDetails || {
+    date: 'N/A', time: 'N/A', guests: 'N/A', occasion: 'N/A', specialRequest: 'N/A'
+  };
+
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
 
@@ -57,7 +64,7 @@ function BookingPage() {
     if (result) {
       console.log("Reservation successful:", formData);
       // Use navigate to go to the confirmation page, passing the form data in state
-      navigate('/booking-contact', { state: { bookingDetails: formData } });
+      navigate('/BookingConfirmation', { state: { bookingDetails: bookingDetails, formData } });
     }
     else {
       console.error("Reservation failed.");
@@ -67,10 +74,10 @@ function BookingPage() {
   return (
     <>
       <Header />
-      <BookingForm availableTimes={availableTimes} onDateChanged ={dispatch} submitForm={submitForm}/>
+      <BookingContactInfoForm availableTimes={availableTimes} onDateChanged ={dispatch} submitForm={submitForm}/>
       <Footer />
     </>
   );
 }
 
-export default BookingPage;
+export default BookingContactInfoPage;

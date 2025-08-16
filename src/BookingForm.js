@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import "./BookingForm.css"
 
 const BookingForm = ({availableTimes = [], onDateChanged, submitForm }) => {
@@ -39,8 +40,18 @@ const BookingForm = ({availableTimes = [], onDateChanged, submitForm }) => {
 
   return (
     <section className="booking-section" aria-labelledby="booking-title">
+      <div className="booking-links-container">
+        <Link to="/booking" className="booking-link current-booking-link disabled-link">Book a Table</Link>
+        <Link to="/booking-contact" className="booking-link disabled-link grayout-link">Contact Info</Link>
+      </div>
       <h2 className="section-title" style={{ textAlign: 'center' }}>Book a Table</h2>
+
       <form className="booking-form" onSubmit={handleSubmit} aria-labelledby="booking-title">
+        <img
+            src="Booking.jpg"
+            alt="A beautiful restaurant interior"
+            className="booking-image"
+        />
         <label htmlFor="res-date" className="form-label">Date</label>
         <input
           type="date"
