@@ -19,7 +19,9 @@ const BookingForm = ({ initialValues, availableTimes = [], onDateChanged, submit
       .min(1, 'Must be at least 1 guest')
       .max(10, 'Cannot exceed 10 guests')
       .required('Number of guests is required'),
-    occasion: Yup.string().required('Occasion is required'),
+    occasion: Yup.string().required('Occasion is required')
+    .notOneOf(['Select One'], 'Please select an occasion') // This is the key change
+    .required('Occasion is required'),
     specialRequest: Yup.string().nullable(),
   });
 
@@ -113,12 +115,14 @@ const BookingForm = ({ initialValues, availableTimes = [], onDateChanged, submit
           aria-label="Occasion"
           aria-haspopup="listbox"
         >
-          <option>Occasion</option>
+          <option>Select One</option>
           <option>Birthday</option>
           <option>Anniversary</option>
+          <option>Dinning</option>
+          <option>Other</option>
         </select>
-        {formik.touched.occasion && formik.errors.occasion ? (
-          <div className="text-red-500 text-sm mt-1">{formik.errors.occasion}</div>
+        {(formik.touched.occasion || formik.submitCount >= 0) && formik.errors.occasion ? (
+        <div className="text-red-500 text-sm mt-1">{formik.errors.occasion}</div>
         ) : null}
 
         <label htmlFor="specialRequest" className="form-label">Special Requests</label>

@@ -14,7 +14,7 @@ function App() {
     date: '',
     time: '17:00',
     guests: 1,
-    occasion: 'Occasion',
+    occasion: 'Select One',
     specialRequest: '',
     firstName: '',
     lastName: '',
