@@ -8,6 +8,7 @@ import AboutPage from './AboutPage';
 import OrderOnlinePage from './OrderOnlinePage';
 import LoginPage from './LoginPage';
 import BookingConfirmationPage from './BookingConfirmationPage';
+import MenuPage from "./MenuPage"
 
 function App() {
   const [bookingState, setBookingState] = useState({
@@ -32,7 +33,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
+      <Route path="/menu" element={<MenuPage />} />
       <Route
         path="/booking"
         element={<BookingPage
@@ -51,6 +52,7 @@ function App() {
           bookingState={bookingState}
           updateBookingState={updateBookingState}/>} />
       <Route path="/orderonline" element={<OrderOnlinePage />} />
+      <Route path="/about" element={<AboutPage />} />
       <Route path="/login" element={<LoginPage />} />
     </Routes>
   );

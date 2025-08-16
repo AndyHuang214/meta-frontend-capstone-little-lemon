@@ -44,7 +44,7 @@ const BookingForm = ({ initialValues, availableTimes = [], onDateChanged, submit
 
   return (
     <section className="booking-section" aria-labelledby="booking-title">
-      <div className="booking-links-container">
+      <div className="booking-links-container" role="booking steps">
         <Link to="/booking" className="booking-link current-booking-link disabled-link">Book a Table</Link>
         <Link to="/booking-contact" className="booking-link disabled-link grayout-link">Contact Info</Link>
       </div>

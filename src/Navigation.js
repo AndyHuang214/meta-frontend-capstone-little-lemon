@@ -7,9 +7,10 @@ const Navigation = ({ isMenuOpen, toggleMenu }) => {
     <nav className={isMenuOpen ? 'nav-open' : ''}>
       <ul className="nav-list">
         <li><a href="/" onClick={toggleMenu}>Home</a></li>
-        <li><a href="/about" onClick={toggleMenu}>About</a></li>
+        <li><a href="/menu" onClick={toggleMenu}>Menu</a></li>
         <li><a href="/booking" onClick={toggleMenu}>Reservations</a></li>
         <li><a href="/orderonline" onClick={toggleMenu}>Order Online</a></li>
+        <li><a href="/about" onClick={toggleMenu}>About</a></li>
         <li><a href="/login" onClick={toggleMenu}>Login</a></li>
       </ul>
     </nav>

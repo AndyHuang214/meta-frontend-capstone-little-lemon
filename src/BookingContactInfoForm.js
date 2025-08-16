@@ -43,7 +43,7 @@ const BookingContactInfoForm = ({ initialValues, updateBookingState, submitForm 
 
     return (
         <section className="booking-section" aria-labelledby="booking-title">
-            <div className="booking-links-container">
+            <div className="booking-links-container" role="booking steps">
                 {/* <Link to="/booking" className="booking-link grayout-link">Book a Table</Link> */}
                 <button type="button" onClick={handleBackClick} className="transparent-button booking-link grayout-link">
                     Book a Table

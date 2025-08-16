@@ -5,7 +5,7 @@ function AboutPage() {
   return (
     <>
       <Header />
-      <h1>About Page</h1>
+      <h1 style={{ textAlign: "center", color: "#facc15" }}>About Page</h1>
       <Footer />
     </>
   );

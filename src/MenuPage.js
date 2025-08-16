@@ -5,7 +5,7 @@ function OrderOnlinePage() {
   return (
     <>
       <Header />
-      <h1 style={{ textAlign: "center", color: "#facc15" }}>Order Online Page</h1>
+      <h1 style={{ textAlign: "center", color: "#facc15" }}>Menu Page</h1>
       <Footer />
     </>
   );

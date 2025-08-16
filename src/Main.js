@@ -8,7 +8,7 @@ import BookingForm from './BookingForm';
 
 const Main = () => {
   return (
-    <main>
+    <main aria-label="Main content of the Little Lemon website">
       {/* First Section: About Us */}
       <AboutSection
         title="Little Lemon"
