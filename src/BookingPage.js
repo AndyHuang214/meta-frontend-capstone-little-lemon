@@ -24,7 +24,7 @@ export function updateTimes(state, action) {//retrun new state
 
 
 
-function BookingPage() {
+function BookingPage({ bookingState, updateBookingState }) {
     //Make sure fetchAPI is loaded before parse BookingPage
     useEffect(() => {
     const checkAPI = () => {
@@ -48,16 +48,17 @@ function BookingPage() {
     }, []);
 
   const navigate = useNavigate();
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes(bookingState.date));
 
 
   const submitForm = (formData) => {
+    updateBookingState(formData);
     const result = window.submitAPI(formData);
 
     if (result) {
       console.log("Reservation successful:", formData);
       // Use navigate to go to the confirmation page, passing the form data in state
-      navigate('/booking-contact', { state: { bookingDetails: formData } });
+      navigate('/booking-contact');
     }
     else {
       console.error("Reservation failed.");
@@ -67,7 +68,7 @@ function BookingPage() {
   return (
     <>
       <Header />
-      <BookingForm availableTimes={availableTimes} onDateChanged ={dispatch} submitForm={submitForm}/>
+      <BookingForm initialValues={bookingState} availableTimes={availableTimes} onDateChanged ={dispatch} submitForm={submitForm}/>
       <Footer />
     </>
   );

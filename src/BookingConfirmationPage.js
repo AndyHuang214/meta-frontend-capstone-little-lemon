@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "./BookingConfirmationPage.css"
 
-const BookingConfirmationPage = () => {
+const BookingConfirmationPage = ({ bookingState, updateBookingState }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const bookingDetails = location.state?.bookingDetails || {
-    date: 'N/A', time: 'N/A', guests: 'N/A', occasion: 'N/A', specialRequest: 'N/A'
-  };
-
   const handleBackToHome = () => {
+    updateBookingState({
+      date: '',
+      time: '17:00',
+      guests: 1,
+      occasion: 'Occasion',
+      specialRequest: '',
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      email: '',
+    });
     navigate('/');
   };
 
@@ -30,19 +37,22 @@ const BookingConfirmationPage = () => {
           <h2 className="details-title">Reservation Details</h2>
           <ul className="details-list">
             <li>
-              <strong>Date:</strong> {bookingDetails.date}
+              <strong>Booked By:</strong> {bookingState.firstName} {bookingState.lastName}
             </li>
             <li>
-              <strong>Time:</strong> {bookingDetails.time}
+              <strong>Date:</strong> {bookingState.date}
             </li>
             <li>
-              <strong>Guests:</strong> {bookingDetails.guests}
+              <strong>Time:</strong> {bookingState.time}
             </li>
             <li>
-              <strong>Occasion:</strong> {bookingDetails.occasion}
+              <strong>Guests:</strong> {bookingState.guests}
             </li>
             <li>
-              <strong>Special Request:</strong> {bookingDetails.specialRequest || 'None'}
+              <strong>Occasion:</strong> {bookingState.occasion}
+            </li>
+            <li>
+              <strong>Special Request:</strong> {bookingState.specialRequest || 'None'}
             </li>
           </ul>
         </div>

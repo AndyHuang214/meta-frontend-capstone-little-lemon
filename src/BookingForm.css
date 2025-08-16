@@ -65,12 +65,19 @@
     padding: 0.5rem 0; /* Adds a small amount of vertical padding */
 }
 
+.transparent-button {
+  background-color: transparent; /* Makes the button background see-through */
+  border: none;                /* Removes the border */
+  box-shadow: none;              /* Removes any shadow */
+}
+
 .booking-link {
     color: #facc15; /* Changes the link text color to yellow */
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
     transition: color 0.2s ease-in-out;
+    background: transparent;
 }
 
 .current-booking-link {
@@ -91,6 +98,10 @@
     opacity: 0.6; /* Makes the link appear "greyed out" */
     text-decoration: none; /* Removes the underline */
 }
+
+      .text-red-500 { color: #ef4444; }
+            .text-sm { font-size: 0.875rem; }
+            .mt-1 { margin-top: 0.25rem; }
 
         @media (min-width: 768px) {
           .booking-form {
