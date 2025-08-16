@@ -18,12 +18,12 @@ const Footer = () => {
           <div className="column" role="listitem">
             <h4 id="doormat-nav-heading">Doormat<br/>Navigation</h4>
             <ul aria-labelledby="doormat-nav-heading">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Menu</a></li>
-              <li><a href="#">Reservations</a></li>
-              <li><a href="#">Order Online</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Login</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/menu">Menu</a></li>
+              <li><a href="/booking-contact">Reservations</a></li>
+              <li><a href="/orderonline">Order Online</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/login">Login</a></li>
             </ul>
           </div>
           <div className="column" role="listitem">
@@ -37,9 +37,9 @@ const Footer = () => {
           <div className="column" role="listitem">
             <h4 id="support-heading">Support</h4>
             <ul aria-labelledby="support-heading">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">TikTok</a></li>
+              <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+              <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+              <li><a href="https://www.tiktok.com/en/" target="_blank">TikTok</a></li>
             </ul>
           </div>
         </div>

@@ -16,6 +16,7 @@ const Main = () => {
         paragraph="We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist. Our chefs craft each dish with fresh, local ingredients, ensuring a unique and memorable dining experience."
         imageSrc="head_chef.jpg"
         imageAlt="Restaurant Interior"
+        showButton="true"
       />
 
       {/* Second Section: Specials */}

@@ -28,7 +28,7 @@ const Header = () => {
     return (
         <header ref={headerRef}>
             <div className="header-container">
-                <img
+                <img role="Little Lemon site logo"
                     src="/Logo-with-text-yellow16@4x.png"
                     alt="Little Lemon site logo"
                     className="logo-header"

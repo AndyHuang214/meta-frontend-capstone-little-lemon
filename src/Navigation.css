@@ -6,7 +6,7 @@
     right: 0; /* Anchor it to the right side */
     /* Give it a fixed width */
     width: 150px;
-    background-color: #f8f9fa;
+    background-color: #333;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Adjust shadow for right side */
     padding: 1rem 0;
     gap: 0;
