@@ -99,7 +99,7 @@ describe('BookingPage Functions', () => {
       const date = '2025-08-19';
       const result = initializeTimes(date);
 
-      const expectedDate = new Date(2025, 7, 19);
+      const expectedDate = new Date(2025, 7, 19);//==='2025-08-19'
       expect(window.fetchAPI).toHaveBeenCalledWith(expectedDate);
 
       expect(result).toEqual(mockTimes);
@@ -115,7 +115,7 @@ describe('BookingPage Functions', () => {
 
       const newState = updateTimes(initialState, action);
 
-      const expectedDate = new Date(2023, 9, 28);
+      const expectedDate = new Date(2023, 9, 28);//==='2023-10-28'
       expect(window.fetchAPI).toHaveBeenCalledWith(expectedDate);
 
       expect(newState).toEqual(mockTimes);
